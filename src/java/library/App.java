@@ -33,14 +33,14 @@ public class App {
             
             task = scanner.nextInt();
             switch (task) {
-                case 0;
+                case 0:
                     repeat="q";
                     break;
-                case 1;
+                case 1:
                     BookCreator bookCreator = new BookCreator();
-                    books.add(book.Creator.returnNewBook());
+                    books.add(bookCreator.returnNewBook());
                     break;
-                case 2;
+                case 2:
                     ReaderCreator readerCreator = new ReaderCreator();
                     readers.add(readerCreator.returnNewReader());
                     break;

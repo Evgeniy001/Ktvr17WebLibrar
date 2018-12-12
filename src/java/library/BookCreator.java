@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class BookCreator {
     public Book returnNewBook(){
-        Scanner scnner = new Scanner (System.in);
+        Scanner scanner = new Scanner (System.in);
         System.out.println("------------Добавление новой книги-----------");
         Book book = new Book();
         System.out.println("Название книги:");

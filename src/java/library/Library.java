@@ -17,15 +17,17 @@ import java.util.GregorianCalendar;
  */
 public class Library {
     public static void main(String[] args){
-        Book book1 = new Book(1L,"Voina i mir","123-123123","Lev Tolstoy",2010);
-        Reader reader1 = new Reader(1L,"Ivan","Ivanov","45650212","Johvi");
-        
-        Calendar c = new GregorianCalendar();
-        
-        LibHistory libHistory1 = new LibHistory(1L,book1,reader1,c.getTime(),null);
-        
-        System.out.println(book1.toString());
-        System.out.println(reader1.toString());
-        System.out.println(libHistory1.toString());
+        App app = new App();
+        app.run();
+//        Book book1 = new Book(1L,"Voina i mir","123-123123","Lev Tolstoy",2010);
+//        Reader reader1 = new Reader(1L,"Ivan","Ivanov","45650212","Johvi");
+//        
+//        Calendar c = new GregorianCalendar();
+//        
+//        LibHistory libHistory1 = new LibHistory(1L,book1,reader1,c.getTime(),null);
+//        
+//        System.out.println(book1.toString());
+//        System.out.println(reader1.toString());
+//        System.out.println(libHistory1.toString());
     }
 }
