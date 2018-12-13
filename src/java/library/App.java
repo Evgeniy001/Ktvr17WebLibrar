@@ -6,6 +6,7 @@
 package library;
 
 import entity.Book;
+import entity.LibHistory;
 import entity.Reader;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.Scanner;
  * @author pupil
  */
 public class App {
+    private List<LibHistory>libHistories = new ArrayList<>();
     private List<Book> books = new ArrayList<>();
     private List<Reader> readers= new ArrayList<>();
     public void run(){
@@ -44,6 +46,13 @@ public class App {
                     ReaderCreator readerCreator = new ReaderCreator();
                     readers.add(readerCreator.returnNewReader());
                     break;
+                case 3:
+                    LibHistoryCreator libHistoryCreator = new LibHistoryCreator();
+                    libHistories.add(libHistoryCreator.returnNewLibHistory(books, readers));
+                    break;
+                case 4:
+                    BookReturner bookReturner = new BookReturner ();
+                    ///**************************************
                 default:
                     System.out.println("Выберите одно из действий");
             }
