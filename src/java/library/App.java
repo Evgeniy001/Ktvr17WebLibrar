@@ -8,6 +8,7 @@ package library;
 import entity.Book;
 import entity.LibHistory;
 import entity.Reader;
+import interfaces.Manageable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,6 +21,7 @@ public class App {
     private List<LibHistory>libHistories = new ArrayList<>();
     private List<Book> books = new ArrayList<>();
     private List<Reader> readers= new ArrayList<>();
+    private Manageable manager = new ConsoleInterface();
     public void run(){
         String repeat = "r";
         Scanner scanner = new Scanner (System.in);
@@ -39,20 +41,25 @@ public class App {
                     repeat="q";
                     break;
                 case 1:
-                    BookCreator bookCreator = new BookCreator();
-                    books.add(bookCreator.returnNewBook());
+                    books.add(manager.createBook());
                     break;
                 case 2:
-                    ReaderCreator readerCreator = new ReaderCreator();
-                    readers.add(readerCreator.returnNewReader());
+                    readers.add(manager.createReader());
                     break;
                 case 3:
-                    LibHistoryCreator libHistoryCreator = new LibHistoryCreator();
-                    libHistories.add(libHistoryCreator.returnNewLibHistory(books, readers));
+                    libHistories.add(manager.issueBook(books, readers));
                     break;
                 case 4:
-                    BookReturner bookReturner = new BookReturner ();
+                    if(manager.returnBook(libHistories)){
+                        System.out.println("Книга возвращена");
+                    }else{
+                        System.out.println("Книга не возвращена");
+                    }
                     ///**************************************
+                    break;
+                case 5:
+                    manager.returnHistory(libHistories);
+                    break;
                 default:
                     System.out.println("Выберите одно из действий");
             }
