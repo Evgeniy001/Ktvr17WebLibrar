@@ -9,6 +9,7 @@ import entity.Book;
 import entity.LibHistory;
 import entity.Reader;
 import interfaces.Manageable;
+import interfaces.Retentive;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,7 +18,14 @@ import java.util.Scanner;
  *
  * @author pupil
  */
+
 public class App {
+    private Retentive saver = new PersistToDatabase();
+    public App(){
+        this.books = saver.loadBooks();
+        this.readers = saver.loadReaders();
+        this.libHistories = saver.loadLibHistoryes();
+    }
     private List<LibHistory>libHistories = new ArrayList<>();
     private List<Book> books = new ArrayList<>();
     private List<Reader> readers= new ArrayList<>();
@@ -41,7 +49,9 @@ public class App {
                     repeat="q";
                     break;
                 case 1:
-                    books.add(manager.createBook());
+                    Book book = manager.createBook();
+                    books.add(book);
+                    saver.saveBook(book);
                     break;
                 case 2:
                     readers.add(manager.createReader());

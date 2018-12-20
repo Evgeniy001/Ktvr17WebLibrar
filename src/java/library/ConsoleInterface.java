@@ -5,6 +5,11 @@
  */
 package library;
 
+import classes.BookReturner;
+import classes.ReaderCreator;
+import classes.HistoryReturner;
+import classes.LibHistoryCreator;
+import classes.BookCreator;
 import entity.Book;
 import entity.LibHistory;
 import entity.Reader;
