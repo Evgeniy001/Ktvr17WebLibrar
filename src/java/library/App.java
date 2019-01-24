@@ -50,16 +50,27 @@ public class App {
                     break;
                 case 1:
                     Book book = manager.createBook();
+                    if(book != null){
                     books.add(book);
                     saver.saveBook(book);
+                    }
                     break;
                 case 2:
-                    readers.add(manager.createReader());
+                    Reader reader = manager.createReader();
+                    if (readers != null){
+                    readers.add(reader);
+                    saver.saveReader(reader);
+                    }
                     break;
                 case 3:
-                    libHistories.add(manager.issueBook(books, readers));
+                    LibHistory libHistory = manager.issueBook(books, readers);
+                    if(libHistory != null){
+                        libHistories.add(libHistory);
+                        saver.saveLibHistory(libHistory, false); 
+                    }
                     break;
                 case 4:
+                    
                     if(manager.returnBook(libHistories)){
                         System.out.println("Книга возвращена");
                     }else{
@@ -68,6 +79,7 @@ public class App {
                     ///**************************************
                     break;
                 case 5:
+                    
                     manager.returnHistory(libHistories);
                     break;
                 default:
